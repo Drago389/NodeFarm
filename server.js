@@ -43,22 +43,8 @@ var server =http.createServer(function(req,res){
     overviewTemplate=overviewTemplate.replace(/{%cardsarea%}/g, cards);
     res.write(overviewTemplate);
     }else if(pathName == "/product"){ //else if(req.url == `/product/${id}`)
-        if(id == 0){
-            var productpage = replace(template, json[0])
-            res.write(productpage)
-        }if( id == 1){
-            var productpage = replace(template, json[1])
-            res.write(productpage)
-        } if(id == 2){
-            var productpage = replace(template, json[2])
-            res.write(productpage)
-        }if (id == 3){
-            var productpage = replace(template, json[3])
-            res.write(productpage)
-        }if(id == 4){
-            var productpage = replace(template, json[4])
-            res.write(productpage)
-        }
+        var productPage = replace(template, json[id]);
+        res.write(productPage);
     } else if(req.url == "/api"){
         res.write(json)
     }else {
@@ -67,6 +53,7 @@ var server =http.createServer(function(req,res){
     }
     res.end()
 })
-server.listen(2000,function(){
+var port =process.env.PORT||3000
+server.listen(port,function(){
     console.log("server created");
 })
