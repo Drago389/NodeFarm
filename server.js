@@ -7,9 +7,9 @@ var http = require("http");
 var fs = require("fs");
 var url = require("url");
 var json = fs.readFileSync("./data.json")
-var template = fs.readFileSync("./product.html")
-var cardsTemplate = fs.readFileSync("./card.html")+"";
-var overviewTemplate = fs.readFileSync("./overview.html")+"";
+var template = fs.readFileSync("./templates/product.html")
+var cardsTemplate = fs.readFileSync("./templates/card.html")+"";
+var overviewTemplate = fs.readFileSync("./templates/overview.html")+"";
 template = template + ""
 // replace
 json = JSON.parse(json)// to convert into object
